@@ -31,8 +31,27 @@ button,input,textarea{font:inherit}
 .hero-lead{margin:20px 0 8px;font-size:clamp(18px,2vw,23px);font-weight:800;line-height:1.6}
 .hero-note{margin:0 0 24px;color:var(--muted);font-size:15px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .hero-visual {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  aspect-ratio: 4 / 3;
+  background: #f5f8f1;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
 .btn-secondary{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border:1px solid #b9d2bd;border-radius:999px;color:var(--forest);font-weight:700;background:#fff}
-.hero-visual{min-height:270px;position:relative;display:grid;place-items:center}
 .laptop-scene{width:min(100%,440px);height:280px;position:relative;border-radius:24px;background:linear-gradient(145deg,#d9edd3,#f8fbf4);display:grid;place-items:center;overflow:hidden}
 .laptop-screen{width:72%;height:68%;border:10px solid #34483e;border-bottom-width:16px;border-radius:12px;background:linear-gradient(135deg,#fff,#d8f1d0);display:grid;place-items:center;box-shadow:0 12px 25px #183b2b22}
 .pixel-cat{font-size:74px;filter:drop-shadow(0 5px 2px #0001)}
@@ -118,11 +137,11 @@ button,input,textarea{font:inherit}
       </div>
     </div>
     <div class="hero-visual" aria-label="Scratchでプログラミングを学ぶイメージ">
-      <div class="laptop-scene">
-        <span class="spark one">✦</span><span class="spark two">✧</span>
-        <div class="laptop-screen"><div class="pixel-cat">🐱</div><div class="screen-caption">LET'S CREATE!</div></div>
-        <div class="laptop-base"></div>
-      </div>
+      <img
+        src="images/scratch_student02.png"
+        alt="Scratchでプログラミングを学ぶ生徒"
+        class="hero-image"
+      >
     </div>
   </section>
 
