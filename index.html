@@ -1,440 +1,403 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="オンラインで楽しくプログラミングを学ぼう。初心者から上級者まで、自分に合った学習方法が見つかります。">
-  <title>Advan Kids | プログラミングオンラインレッスン</title>
+  <title>Advan Online Kids | キッズ プログラミングオンラインレッスン</title>
+
   <style>
     :root {
       --navy: #263b58;
       --blue: #547da8;
-      --pale: #eef4f8;
+      --pale: #f2f6f8;
       --cream: #fffaf2;
       --orange: #e9a45b;
       --ink: #293444;
       --muted: #687586;
+      --line: #e5ebef;
       --white: #fff;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(38, 59, 88, .09);
+      --radius: 14px;
     }
 
-    * {
-      box-sizing: border-box
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
       color: var(--ink);
-      line-height: 1.8;
-      background: #fff
+      background: var(--white);
+      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.75;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(1100px, 92%);
-      margin: auto
+      width: min(1080px, 92%);
+      margin: 0 auto;
     }
 
+    /* Header */
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, .96);
-      border-bottom: 1px solid #e8edf1
+      z-index: 10;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      height: 76px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px
+      gap: 20px;
     }
 
     .logo {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      font-weight: bold;
       color: var(--navy);
-      letter-spacing: 1px
+      font-family: Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.1;
+      white-space: nowrap;
     }
 
     .logo small {
       display: block;
-      font: 10px sans-serif;
-      letter-spacing: 2px;
+      margin-top: 5px;
       color: var(--muted);
+      font: 9px sans-serif;
+      letter-spacing: 2px;
       text-align: center;
-      margin-top: -8px
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 24px;
-      font-size: 14px
+      gap: 20px;
+      font-size: 13px;
     }
 
-    nav a:hover {
-      color: var(--blue)
-    }
-
-    .nav-cta,
-    .btn {
-      display: inline-block;
-      background: var(--orange);
-      color: #fff;
-      padding: 11px 22px;
-      border-radius: 30px;
-      font-weight: 700
-    }
+    nav a:hover, .more:hover { color: var(--blue); }
 
     .menu-btn {
       display: none;
+      padding: 5px 10px;
       border: 0;
-      background: none;
-      font-size: 26px;
-      color: var(--navy)
-    }
-
-    .hero {
-      background: linear-gradient(115deg, #edf4f8 0%, #fffaf2 100%);
-      padding: 78px 0 82px;
-      overflow: hidden
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 45px
-    }
-
-    .eyebrow {
-      color: var(--blue);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px
-    }
-
-    h1 {
-      font-size: clamp(32px, 4.4vw, 52px);
-      line-height: 1.4;
+      background: transparent;
       color: var(--navy);
-      margin: 12px 0 20px
+      font-size: 26px;
+      cursor: pointer;
     }
 
-    .hero p {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 520px
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 28px
-    }
-
-    #myDiv img {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      display: block;
-    }
-
-
-
-    #myDiv {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 21px;
+      border-radius: 30px;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
     }
 
     .btn.secondary {
       background: #fff;
       color: var(--navy);
-      border: 1px solid #d9e2e9
+      border: 1px solid #d9e2e9;
     }
 
-    section {
-      padding: 76px 0
+    /* Hero */
+    .hero {
+      padding: 65px 0;
+      background: var(--pale);
     }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    h1 {
+      margin: 12px 0 18px;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.4;
+    }
+
+    .hero-copy {
+      max-width: 520px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    #myDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+
+    #myDiv img {
+      display: block;
+      width: 100%;
+      max-width: 460px;
+      max-height: 330px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Common section */
+    section { padding: 65px 0; }
 
     .section-head {
+      margin-bottom: 34px;
       text-align: center;
-      margin-bottom: 38px
-    }
-
-    .section-head .eyebrow {
-      margin: 0
     }
 
     h2 {
-      font-size: 30px;
+      margin: 7px 0;
       color: var(--navy);
-      margin: 8px 0
+      font-size: 29px;
+      line-height: 1.4;
     }
 
-    .section-head p {
+    .section-head > p:last-child {
+      margin: 5px 0 0;
       color: var(--muted);
-      margin: 0
+      font-size: 14px;
     }
 
-    .courses {
-      background: #fff
-    }
-
+    /* Courses */
     .course-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .course-card {
-      border: 1px solid #e7edf1;
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 25px;
       background: #fff;
-      box-shadow: var(--shadow);
-      transition: transform .2s
     }
 
-    .course-card:hover {
-      transform: translateY(-4px)
+    .course-icon {
+      width: 76px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      padding: 5px;
+      border-radius: 12px;
+      background: var(--pale);
     }
 
     .course-icon img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
       display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .course-card h3 {
+      margin: 5px 0;
       color: var(--navy);
-      font-size: 19px;
-      margin: 15px 0 5px
+      font-size: 18px;
     }
 
     .course-card p {
-      font-size: 14px;
+      min-height: 28px;
+      margin: 0 0 12px;
       color: var(--muted);
-      margin: 0 0 16px
+      font-size: 14px;
     }
 
     .more {
       color: var(--blue);
       font-size: 13px;
-      font-weight: 700
+      font-weight: 700;
     }
 
-    .features {
-      background: var(--pale)
-    }
+    /* Features */
+    .features { background: var(--pale); }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .feature {
+      padding: 20px;
       text-align: center;
-      padding: 22px
     }
 
-    .feature .symbol {
-      font-size: 32px
-    }
+    .feature .symbol { font-size: 30px; }
 
     .feature h3 {
+      margin: 7px 0;
       color: var(--navy);
-      font-size: 17px;
-      margin: 8px 0
+      font-size: 16px;
     }
 
     .feature p {
-      font-size: 14px;
+      margin: 0;
       color: var(--muted);
-      margin: 0
+      font-size: 13px;
     }
 
+    /* Student voices */
     .voice-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .voice {
-      background: var(--cream);
+      padding: 22px;
       border-radius: var(--radius);
-      padding: 25px
+      background: var(--cream);
     }
 
     .stars {
       color: #e3a04e;
-      letter-spacing: 3px
+      letter-spacing: 2px;
     }
 
     .voice p {
-      font-size: 14px
+      font-size: 14px;
     }
 
     .voice strong {
+      color: var(--navy);
       font-size: 13px;
-      color: var(--navy)
     }
 
-    .faq {
-      background: #f8fafb
+    .center-link {
+      margin-top: 24px;
+      text-align: center;
     }
+
+    /* FAQ */
+    .faq { background: #f8fafb; }
 
     .faq-list {
       max-width: 800px;
-      margin: auto
+      margin: 0 auto;
     }
 
     details {
+      margin: 10px 0;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
       background: #fff;
-      border-radius: 12px;
-      margin: 12px 0;
-      padding: 17px 21px;
-      border: 1px solid #e8edf1
     }
 
     summary {
-      cursor: pointer;
+      color: var(--navy);
       font-weight: 700;
-      color: var(--navy)
+      cursor: pointer;
     }
 
     details p {
+      margin-bottom: 0;
       color: var(--muted);
       font-size: 14px;
-      margin-bottom: 0
     }
 
+    /* Contact and footer */
     .contact {
+      padding: 60px 20px;
       background: var(--navy);
       color: #fff;
       text-align: center;
-      padding: 65px 20px
     }
 
-    .contact h2 {
-      color: #fff
-    }
+    .contact h2 { color: #fff; }
 
-    .contact p {
-      color: #dce5ed
-    }
+    .contact p { color: #dce5ed; }
 
-    .contact .btn {
-      margin-top: 15px
-    }
+    .contact .btn { margin-top: 12px; }
 
     footer {
+      padding: 25px 0;
       background: #1d2e45;
       color: #dce5ed;
-      padding: 28px 0;
-      font-size: 12px
+      font-size: 12px;
     }
 
     .footer-inner {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap
+      gap: 12px;
     }
 
-    footer a {
-      margin-left: 18px
-    }
+    footer a { margin-left: 16px; }
 
-    @media(max-width:800px) {
+    /* Tablet */
+    @media (max-width: 800px) {
       nav {
         display: none;
         position: absolute;
-        top: 76px;
+        top: 72px;
         left: 0;
         right: 0;
-        background: #fff;
-        padding: 20px 5%;
-        box-shadow: var(--shadow);
+        padding: 18px 4%;
         flex-direction: column;
         align-items: stretch;
-        gap: 14px
+        gap: 12px;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
       }
 
-      nav.open {
-        display: flex
-      }
-
-      .menu-btn {
-        display: block
-      }
-
-      .nav-cta {
-        display: none
-      }
-
-      .hero {
-        padding: 55px 0
-      }
+      nav.open { display: flex; }
+      .menu-btn { display: block; }
+      .nav-cta { display: none; }
 
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 35px
+        gap: 28px;
       }
 
+      #myDiv img { max-width: 420px; }
 
-
-      .course-grid {
-        grid-template-columns: repeat(2, 1fr)
-      }
-
-      .feature-grid,
-      .voice-grid {
-        grid-template-columns: 1fr 1fr
-      }
+      .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature-grid, .voice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    @media(max-width:540px) {
-      section {
-        padding: 58px 0
-      }
-
-      .course-grid,
-      .feature-grid,
-      .voice-grid {
-        grid-template-columns: 1fr
-      }
-
-      .hero-art {
-        min-height: 210px
-      }
-
-      .hero-note {
-        font-size: 11px
-      }
-
-      h2 {
-        font-size: 25px
-      }
+    /* Smartphone */
+    @media (max-width: 540px) {
+      section { padding: 50px 0; }
+      .hero { padding: 45px 0; }
+      .course-grid, .feature-grid, .voice-grid { grid-template-columns: 1fr; }
+      .course-card { padding: 20px; }
+      h2 { font-size: 25px; }
+      .footer-inner { flex-direction: column; }
+      footer a:first-child { margin-left: 0; }
     }
   </style>
 </head>
@@ -443,7 +406,9 @@
   <header>
     <div class="container nav">
       <a class="logo" href="#">Advan Kids<small>PROGRAMMING ONLINE</small></a>
-      <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+
+      <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
+
       <nav id="navigation">
         <a href="#courses">学習コース</a>
         <a href="#features">Advan Kidsの特徴</a>
@@ -451,122 +416,117 @@
         <a href="#faq">よくある質問</a>
         <a href="#contact">お問い合わせ</a>
       </nav>
-      <a class="nav-cta" href="#courses">コースを見る</a>
+
+      <a class="btn nav-cta" href="#courses">コースを見る</a>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">LEARN PROGRAMMING WITH ADVAN KIDS</div>
+          <p class="eyebrow">LEARN PROGRAMMING WITH ADVAN KIDS</p>
           <h1>プログラミングを、<br>もっと楽しく、もっと自分らしく。</h1>
-          <p>小さな「できた！」を一つずつ。初心者の方も、自分のペースでプログラミングを学べるオンラインレッスンです。</p>
+          <p class="hero-copy">小さな「できた！」を一つずつ。初心者の方も、自分のペースでプログラミングを学べるオンラインレッスンです。</p>
+
           <div class="hero-actions">
             <a class="btn" href="#courses">学習コースを見る</a>
             <a class="btn secondary" href="#contact">お問い合わせ</a>
           </div>
         </div>
 
-        <div id="myDiv"></div>
-
+        <div id="myDiv">
+          <img src="images/logoKidsProgramming.png" alt="Advan Kids プログラミングオンライン">
+        </div>
       </div>
     </section>
 
-    <section class="courses" id="courses">
+    <!-- Courses -->
+    <section id="courses">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">OUR COURSES</p>
           <h2>あなたに合った学び方を</h2>
           <p>目的やライフスタイルに合わせてコースを選べます。</p>
         </div>
+
         <div class="course-grid">
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/scratch.png" alt="Scratch">
-            </div>
+            <div class="course-icon"><img src="images/scratch.png" alt="Scratch"></div>
             <h3>Scratch</h3>
-            <p> 2Dゲームをつくろう！</p>
+            <p>2Dゲームをつくろう！</p>
             <a class="more" href="SCRATCH.html">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/gas.png" alt="gas">
-            </div>
+            <div class="course-icon"><img src="images/gas.png" alt="GAS"></div>
             <h3>GAS</h3>
-            <p> 作業を自動化しよう！</p>
+            <p>作業を自動化しよう！</p>
             <a class="more" href="https://Advan Kids.online/privatkurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/javascript.png" alt="javascript">
-            </div>
+            <div class="course-icon"><img src="images/javascript.png" alt="JavaScript"></div>
             <h3>JavaScript</h3>
             <p>Webアプリをつくろう！</p>
             <a class="more" href="https://Advan Kids.online/videokurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/koov.png" alt="koov">
-            </div>
+            <div class="course-icon"><img src="images/koov.png" alt="KOOV"></div>
             <h3>KOOV</h3>
             <p>ロボットをつくって動かそう！</p>
             <a class="more" href="https://Advan Kids.online/konversationskurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/minecraft.png" alt="minecraft">
-            </div>
+            <div class="course-icon"><img src="images/minecraft.png" alt="Minecraft"></div>
             <h3>Minecraft</h3>
             <p>3Dワールドをつくろう！</p>
             <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/roblox.png" alt="roblox">
-            </div>
+            <div class="course-icon"><img src="images/roblox.png" alt="Roblox"></div>
             <h3>Roblox</h3>
             <p>3Dゲームをつくろう！</p>
             <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/video_editing.png" alt="video_editing">
-            </div>
+            <div class="course-icon"><img src="images/video_editing.png" alt="Video Editing"></div>
             <h3>Video Editing</h3>
             <p>オリジナル動画をつくろう！</p>
             <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/python.png" alt="video_editing">
-            </div>
+            <div class="course-icon"><img src="images/python.png" alt="Python"></div>
             <h3>Python</h3>
             <p>問題を解決しよう！</p>
             <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
           </article>
+
           <article class="course-card">
-            <div class="course-icon">
-              <img src="images/proKen.jpg" alt="proKen.jpg">
-            </div>
+            <div class="course-icon"><img src="images/proKen.jpg" alt="プロ検"></div>
             <h3>プロ検</h3>
             <p>プログラミングの試験です。</p>
             <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
           </article>
-
-
-          
         </div>
       </div>
     </section>
 
+    <!-- Features -->
     <section class="features" id="features">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">WHY Advan Kids?</p>
+          <p class="eyebrow">WHY ADVAN KIDS?</p>
           <h2>Advan Kidsの特徴</h2>
           <p>初めての方も、続けやすい学習環境を大切にしています。</p>
         </div>
+
         <div class="feature-grid">
           <div class="feature">
             <div class="symbol">🌱</div>
@@ -602,6 +562,7 @@
       </div>
     </section>
 
+    <!-- Student voices -->
     <section id="voices">
       <div class="container">
         <div class="section-head">
@@ -609,25 +570,32 @@
           <h2>受講生の声</h2>
           <p>学びを通して感じた変化をご紹介します。</p>
         </div>
+
         <div class="voice-grid">
           <article class="voice">
             <div class="stars">★★★★★</div>
-            <p>プログラミングだけでなく、人とのつながりも広がりました。</p><strong>受講生の声</strong>
+            <p>プログラミングだけでなく、人とのつながりも広がりました。</p>
+            <strong>受講生の声</strong>
           </article>
           <article class="voice">
             <div class="stars">★★★★★</div>
-            <p>現地でプログラミングが通じたときの喜びを味わえました。</p><strong>受講生の声</strong>
+            <p>現地でプログラミングが通じたときの喜びを味わえました。</p>
+            <strong>受講生の声</strong>
           </article>
           <article class="voice">
             <div class="stars">★★★★★</div>
-            <p>仲間と一緒に取り組めるので、学習の励みになります。</p><strong>受講生の声</strong>
+            <p>仲間と一緒に取り組めるので、学習の励みになります。</p>
+            <strong>受講生の声</strong>
           </article>
         </div>
-        <p style="text-align:center;margin-top:25px"><a class="more"
-            href="https://Advan Kids.online/reviews">受講生の声をもっと見る →</a></p>
+
+        <p class="center-link">
+          <a class="more" href="https://Advan Kids.online/reviews">受講生の声をもっと見る →</a>
+        </p>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq" id="faq">
       <div class="container">
         <div class="section-head">
@@ -635,6 +603,7 @@
           <h2>よくある質問</h2>
           <p>初めての方からよくいただく質問です。</p>
         </div>
+
         <div class="faq-list">
           <details>
             <summary>プログラミングは全くの初心者なのですが大丈夫ですか？</summary>
@@ -660,6 +629,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section class="contact" id="contact">
       <div class="container">
         <p class="eyebrow" style="color:#f4c58f">LET'S START LEARNING</p>
@@ -673,18 +643,23 @@
   <footer>
     <div class="container footer-inner">
       <div>© Advan Kids — プログラミングオンラインレッスン</div>
-      <div><a href="https://Advan Kids.online/impressum">企業情報</a><a
-          href="https://Advan Kids.online/privacy-policy">プライバシーポリシー</a></div>
+      <div>
+        <a href="https://Advan Kids.online/impressum">企業情報</a>
+        <a href="https://Advan Kids.online/privacy-policy">プライバシーポリシー</a>
+      </div>
     </div>
   </footer>
+
   <script>
     const menuButton = document.querySelector('.menu-btn');
     const navigation = document.querySelector('#navigation');
+
     menuButton.addEventListener('click', () => {
       const isOpen = navigation.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(isOpen));
       menuButton.textContent = isOpen ? '×' : '☰';
     });
+
     navigation.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navigation.classList.remove('open');
@@ -692,20 +667,7 @@
         menuButton.textContent = '☰';
       });
     });
-
-    // 1. img要素を作成する
-    const img = document.createElement('img');
-
-    // 2. 画像のパス（src）と代替テキスト（alt）を設定する
-    img.src = 'images/logoKidsProgramming.png';
-    img.alt = '画像の説明';
-
-    // 3. 対象のdiv要素を取得する
-    const div = document.getElementById('myDiv');
-
-    // 4. divの中にimgを追加する
-    div.appendChild(img);
   </script>
 </body>
-
 </html>
+
