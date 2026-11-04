@@ -111,6 +111,120 @@ button,input,textarea{font:inherit}
  .works{grid-template-columns:1fr}.project-band{grid-template-columns:1fr}.project-art{display:none}
  .signup-wrap{padding:0 14px;margin:42px auto}.signup{padding:20px 15px}.signup-form{padding:17px 13px}
 }
+
+  /* Scratch Projects */
+.works-lead {
+  margin: -10px 0 5px;
+  color: var(--forest);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.works-intro {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.works-subtitle {
+  margin: 0 0 18px;
+  color: var(--forest);
+  font-size: 20px;
+}
+
+.works {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.work-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(20, 61, 43, .10);
+}
+
+.work-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #18251d;
+}
+
+.work-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-body {
+  padding: 18px;
+}
+
+.work-category {
+  margin: 0 0 6px;
+  color: var(--leaf);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.work-body h3 {
+  margin: 0 0 8px;
+  color: var(--forest);
+  font-size: 18px;
+}
+
+.work-body p:not(.work-category) {
+  min-height: 75px;
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.work-link {
+  display: inline-block;
+  padding: 8px 17px;
+  border-radius: 99px;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.work-link:hover {
+  background: var(--forest);
+}
+
+@media(max-width:760px) {
+  .works {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:480px) {
+  .works {
+    grid-template-columns: 1fr;
+  }
+
+  .works-lead {
+    font-size: 20px;
+  }
+
+  .work-body p:not(.work-category) {
+    min-height: auto;
+  }
+}
 </style>
 </head>
 <body>
@@ -210,7 +324,7 @@ button,input,textarea{font:inherit}
     </div>
   </section>
 
-  <section class="section" id="works">
+  <!-- <section class="section" id="works">
     <h2 class="section-title"><small>SCRATCH PROJECTS</small>生徒さんの作品紹介</h2>
     <p style="color:var(--muted);margin-top:-12px;margin-bottom:20px">Scratchでつくった作品をご紹介します。アイデアを考え、プログラムを組み、自分だけの作品に仕上げました。</p>
     <div class="works">
@@ -228,7 +342,101 @@ button,input,textarea{font:inherit}
       </article>
     </div>
     <p class="form-note">※作品画像はサンプルです。実際の生徒作品の画像に差し替えてご利用ください。</p>
-  </section>
+  </section> -->
+
+<section class="section" id="works">
+  <h2 class="section-title">
+    <small>ONLINE KIDS PROGRAMMING</small>
+    オンラインキッズプログラミング
+  </h2>
+
+  <p class="works-lead">
+    自分のアイデアをカタチにしよう。
+  </p>
+
+  <p class="works-intro">
+    Scratchを使って、ゲームやアニメーションをつくります。
+    プログラミングを学びながら、自分だけの作品を完成させよう！
+  </p>
+
+  <h3 class="works-subtitle">Scratch｜2Dゲームをつくろう！</h3>
+
+  <div class="works">
+
+    <!-- 01 Simple Shooting Game -->
+    <article class="work-card">
+      <div class="work-video">
+        <video controls playsinline preload="metadata">
+          <source src="videos/simpleShootingGame.mp4" type="video/mp4">
+          お使いのブラウザは動画に対応していません。
+        </video>
+      </div>
+
+      <div class="work-body">
+        <p class="work-category">SCRATCH｜GAME 01</p>
+        <h3>Simple Shooting Game</h3>
+        <p>
+          敵を狙ってシューティング！
+          キャラクターを操作して、楽しいゲームをつくろう。
+        </p>
+        <a class="work-link"
+           href="https://scratch.mit.edu/projects/1399069196/fullscreen/"
+           target="_blank" rel="noopener noreferrer">
+          ゲームで遊ぶ →
+        </a>
+      </div>
+    </article>
+
+    <!-- 02 Trash Sorting Game -->
+    <article class="work-card">
+      <div class="work-video">
+        <video controls playsinline preload="metadata">
+          <source src="videos/TrashSortingGame.mp4" type="video/mp4">
+          お使いのブラウザは動画に対応していません。
+        </video>
+      </div>
+
+      <div class="work-body">
+        <p class="work-category">SCRATCH｜GAME 02</p>
+        <h3>Trash Sorting Game</h3>
+        <p>
+          ごみを正しく分別できるかな？
+          遊びながらリサイクルについて学べるゲームです。
+        </p>
+        <a class="work-link"
+           href="https://scratch.mit.edu/projects/1393151287/fullscreen/"
+           target="_blank" rel="noopener noreferrer">
+          ゲームで遊ぶ →
+        </a>
+      </div>
+    </article>
+
+    <!-- 03 Car Race -->
+    <article class="work-card">
+      <div class="work-video">
+        <video controls playsinline preload="metadata">
+          <source src="videos/carRace.mp4" type="video/mp4">
+          お使いのブラウザは動画に対応していません。
+        </video>
+      </div>
+
+      <div class="work-body">
+        <p class="work-category">SCRATCH｜GAME 03</p>
+        <h3>Car Race</h3>
+        <p>
+          車を操作してレースに挑戦！
+          スピードと操作を工夫してゴールを目指そう。
+        </p>
+        <a class="work-link"
+           href="https://scratch.mit.edu/projects/1123987727/fullscreen/"
+           target="_blank" rel="noopener noreferrer">
+          ゲームで遊ぶ →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
 
   <section class="signup-wrap" id="signup">
     <div class="signup">
