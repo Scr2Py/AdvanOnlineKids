@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="オンラインで楽しくプログラミングを学ぼう。初心者から上級者まで、自分に合った学習方法が見つかります。">
+  <title>Advan Kids | プログラミングオンラインレッスン</title>
+  <style>
+    :root {
+      --navy: #263b58;
+      --blue: #547da8;
+      --pale: #eef4f8;
+      --cream: #fffaf2;
+      --orange: #e9a45b;
+      --ink: #293444;
+      --muted: #687586;
+      --white: #fff;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(38, 59, 88, .09);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--ink);
+      line-height: 1.8;
+      background: #fff
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid #e8edf1
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-weight: bold;
+      color: var(--navy);
+      letter-spacing: 1px
+    }
+
+    .logo small {
+      display: block;
+      font: 10px sans-serif;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: -8px
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px
+    }
+
+    nav a:hover {
+      color: var(--blue)
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      padding: 11px 22px;
+      border-radius: 30px;
+      font-weight: 700
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 26px;
+      color: var(--navy)
+    }
+
+    .hero {
+      background: linear-gradient(115deg, #edf4f8 0%, #fffaf2 100%);
+      padding: 78px 0 82px;
+      overflow: hidden
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 45px
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px
+    }
+
+    h1 {
+      font-size: clamp(32px, 4.4vw, 52px);
+      line-height: 1.4;
+      color: var(--navy);
+      margin: 12px 0 20px
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px
+    }
+
+    #myDiv img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      display: block;
+    }
+
+
+
+    #myDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: var(--navy);
+      border: 1px solid #d9e2e9
+    }
+
+    section {
+      padding: 76px 0
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 38px
+    }
+
+    .section-head .eyebrow {
+      margin: 0
+    }
+
+    h2 {
+      font-size: 30px;
+      color: var(--navy);
+      margin: 8px 0
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0
+    }
+
+    .courses {
+      background: #fff
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .course-card {
+      border: 1px solid #e7edf1;
+      border-radius: var(--radius);
+      padding: 25px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      transition: transform .2s
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px)
+    }
+
+    .course-icon img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .course-card h3 {
+      color: var(--navy);
+      font-size: 19px;
+      margin: 15px 0 5px
+    }
+
+    .course-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 16px
+    }
+
+    .more {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .features {
+      background: var(--pale)
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px
+    }
+
+    .feature {
+      text-align: center;
+      padding: 22px
+    }
+
+    .feature .symbol {
+      font-size: 32px
+    }
+
+    .feature h3 {
+      color: var(--navy);
+      font-size: 17px;
+      margin: 8px 0
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .voice {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 25px
+    }
+
+    .stars {
+      color: #e3a04e;
+      letter-spacing: 3px
+    }
+
+    .voice p {
+      font-size: 14px
+    }
+
+    .voice strong {
+      font-size: 13px;
+      color: var(--navy)
+    }
+
+    .faq {
+      background: #f8fafb
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: auto
+    }
+
+    details {
+      background: #fff;
+      border-radius: 12px;
+      margin: 12px 0;
+      padding: 17px 21px;
+      border: 1px solid #e8edf1
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy)
+    }
+
+    details p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 0
+    }
+
+    .contact {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 65px 20px
+    }
+
+    .contact h2 {
+      color: #fff
+    }
+
+    .contact p {
+      color: #dce5ed
+    }
+
+    .contact .btn {
+      margin-top: 15px
+    }
+
+    footer {
+      background: #1d2e45;
+      color: #dce5ed;
+      padding: 28px 0;
+      font-size: 12px
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    footer a {
+      margin-left: 18px
+    }
+
+    @media(max-width:800px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px 5%;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px
+      }
+
+      nav.open {
+        display: flex
+      }
+
+      .menu-btn {
+        display: block
+      }
+
+      .nav-cta {
+        display: none
+      }
+
+      .hero {
+        padding: 55px 0
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px
+      }
+
+
+
+      .course-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .feature-grid,
+      .voice-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:540px) {
+      section {
+        padding: 58px 0
+      }
+
+      .course-grid,
+      .feature-grid,
+      .voice-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero-art {
+        min-height: 210px
+      }
+
+      .hero-note {
+        font-size: 11px
+      }
+
+      h2 {
+        font-size: 25px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">Advan Kids<small>PROGRAMMING ONLINE</small></a>
+      <button class="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+      <nav id="navigation">
+        <a href="#courses">学習コース</a>
+        <a href="#features">Advan Kidsの特徴</a>
+        <a href="#voices">受講生の声</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <a class="nav-cta" href="#courses">コースを見る</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">LEARN PROGRAMMING WITH ADVAN KIDS</div>
+          <h1>プログラミングを、<br>もっと楽しく、もっと自分らしく。</h1>
+          <p>小さな「できた！」を一つずつ。初心者の方も、自分のペースでプログラミングを学べるオンラインレッスンです。</p>
+          <div class="hero-actions">
+            <a class="btn" href="#courses">学習コースを見る</a>
+            <a class="btn secondary" href="#contact">お問い合わせ</a>
+          </div>
+        </div>
+
+        <div id="myDiv"></div>
+
+      </div>
+    </section>
+
+    <section class="courses" id="courses">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">OUR COURSES</p>
+          <h2>あなたに合った学び方を</h2>
+          <p>目的やライフスタイルに合わせてコースを選べます。</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/scratch.png" alt="Scratch">
+            </div>
+            <h3>Scratch</h3>
+            <p> 2Dゲームをつくろう！</p>
+            <a class="more" href="https://Advan Kids.online/gruppenkurs">詳しく見る →</a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/gas.png" alt="gas">
+            </div>
+            <h3>GAS</h3>
+            <p> 作業を自動化しよう！</p>
+            <a class="more" href="https://Advan Kids.online/privatkurs">詳しく見る →</a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/javascript.png" alt="javascript">
+            </div>
+            <h3>JavaScript</h3>
+            <p>Webアプリをつくろう！</p>
+            <a class="more" href="https://Advan Kids.online/videokurs">詳しく見る →</a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/koov.png" alt="koov">
+            </div>
+            <h3>KOOV</h3>
+            <p>ロボットをつくって動かそう！</p>
+            <a class="more" href="https://Advan Kids.online/konversationskurs">詳しく見る →</a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/minecraft.png" alt="minecraft">
+            </div>
+            <h3>Minecraft</h3>
+            <p>3Dワールドをつくろう！</p>
+            <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
+          </article>
+
+
+
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/roblox.png" alt="roblox">
+            </div>
+            <h3>Roblox</h3>
+            <p>3Dゲームをつくろう！</p>
+            <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/video_editing.png" alt="video_editing">
+            </div>
+            <h3>Video Editing</h3>
+            <p>オリジナル動画をつくろう！</p>
+            <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
+          </article>
+          <article class="course-card">
+            <div class="course-icon">
+              <img src="images/python.png" alt="video_editing">
+            </div>
+            <h3>Python</h3>
+            <p>問題を解決しよう！</p>
+            <a class="more" href="https://Advan Kids.online/textkurs">詳しく見る →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">WHY Advan Kids?</p>
+          <h2>Advan Kidsの特徴</h2>
+          <p>初めての方も、続けやすい学習環境を大切にしています。</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="symbol">🌱</div>
+            <h3>初心者でも安心</h3>
+            <p>初めてプログラミングを学ぶ方も、自分のレベルから始められます。</p>
+          </div>
+          <div class="feature">
+            <div class="symbol">🏠</div>
+            <h3>自宅から受講</h3>
+            <p>オンラインだから、好きな場所からレッスンに参加できます。</p>
+          </div>
+          <div class="feature">
+            <div class="symbol">🎯</div>
+            <h3>自分に合った学習</h3>
+            <p>目的や目標に合わせて、学習方法を選ぶことができます。</p>
+          </div>
+          <div class="feature">
+            <div class="symbol">📝</div>
+            <h3>試験対策にも対応</h3>
+            <p>プログラミングの試験に向けた学習にも取り組めます。</p>
+          </div>
+          <div class="feature">
+            <div class="symbol">🌍</div>
+            <h3>海外からも受講OK</h3>
+            <p>場所にとらわれず、オンラインで学習を続けられます。</p>
+          </div>
+          <div class="feature">
+            <div class="symbol">😊</div>
+            <h3>子どもも大歓迎</h3>
+            <p>お子さまのプログラミング学習にも対応しています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="voices">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">STUDENT VOICES</p>
+          <h2>受講生の声</h2>
+          <p>学びを通して感じた変化をご紹介します。</p>
+        </div>
+        <div class="voice-grid">
+          <article class="voice">
+            <div class="stars">★★★★★</div>
+            <p>プログラミングだけでなく、人とのつながりも広がりました。</p><strong>受講生の声</strong>
+          </article>
+          <article class="voice">
+            <div class="stars">★★★★★</div>
+            <p>現地でプログラミングが通じたときの喜びを味わえました。</p><strong>受講生の声</strong>
+          </article>
+          <article class="voice">
+            <div class="stars">★★★★★</div>
+            <p>仲間と一緒に取り組めるので、学習の励みになります。</p><strong>受講生の声</strong>
+          </article>
+        </div>
+        <p style="text-align:center;margin-top:25px"><a class="more"
+            href="https://Advan Kids.online/reviews">受講生の声をもっと見る →</a></p>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>よくある質問</h2>
+          <p>初めての方からよくいただく質問です。</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>プログラミングは全くの初心者なのですが大丈夫ですか？</summary>
+            <p>はい。初心者の方も歓迎しています。ご自身のレベルに合った学習方法から始められます。</p>
+          </details>
+          <details>
+            <summary>教科書や教材は必要ですか？</summary>
+            <p>コースによって教材が異なります。詳しくは各コースの案内をご確認ください。</p>
+          </details>
+          <details>
+            <summary>どの講師がおすすめですか？</summary>
+            <p>学習の目的や希望に合わせて講師をお選びいただけます。</p>
+          </details>
+          <details>
+            <summary>ヘッドセットを用意しないといけませんか？</summary>
+            <p>受講環境については、お問い合わせください。</p>
+          </details>
+          <details>
+            <summary>無料体験レッスンはありますか？</summary>
+            <p>最新の体験レッスン情報は公式サイトのお知らせをご確認ください。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <p class="eyebrow" style="color:#f4c58f">LET'S START LEARNING</p>
+        <h2>プログラミング学習を始めてみませんか？</h2>
+        <p>あなたに合った学び方を、一緒に見つけましょう。</p>
+        <a class="btn" href="https://Advan Kids.online/kontaktieren">お問い合わせはこちら</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© Advan Kids — プログラミングオンラインレッスン</div>
+      <div><a href="https://Advan Kids.online/impressum">企業情報</a><a
+          href="https://Advan Kids.online/privacy-policy">プライバシーポリシー</a></div>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const navigation = document.querySelector('#navigation');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    navigation.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+      });
+    });
+
+    // 1. img要素を作成する
+    const img = document.createElement('img');
+
+    // 2. 画像のパス（src）と代替テキスト（alt）を設定する
+    img.src = 'images/logoKidsProgramming.png';
+    img.alt = '画像の説明';
+
+    // 3. 対象のdiv要素を取得する
+    const div = document.getElementById('myDiv');
+
+    // 4. divの中にimgを追加する
+    div.appendChild(img);
+  </script>
+</body>
+
+</html>
