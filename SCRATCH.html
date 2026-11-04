@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Scratchで楽しく学ぶキッズプログラミング。小学3～6年生向けオンラインレッスン。">
+<title>Scratch 3－6｜キッズプログラミング｜Advan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap');
+:root{
+  --forest:#143d2b;--forest2:#20543a;--leaf:#438653;--green:#16834a;
+  --ink:#20352b;--muted:#68766e;--line:#e3eae5;--soft:#f5f8f5;
+  --mint:#e9f7e9;--orange:#f79316;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:Inter,"Noto Sans JP",sans-serif;line-height:1.8;background:#fff}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.site-header{height:70px;padding:0 max(24px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:24px;background:#fff}
+.brand{display:flex;align-items:center;gap:9px;font-size:25px;font-weight:800;color:var(--forest)}
+.brand-mark{width:30px;height:30px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#9bd44c,#258348);border-radius:70% 15% 70% 15%;transform:rotate(-12deg);font-size:17px}
+.nav{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:700}
+.nav-cta,.btn{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:999px;background:var(--green);color:#fff;font-weight:800;padding:12px 23px;cursor:pointer;transition:.2s}
+.nav-cta:hover,.btn:hover{background:var(--forest);transform:translateY(-1px)}
+.hero{max-width:1200px;margin:0 auto;padding:54px 7%;min-height:390px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:28px;overflow:hidden;background:linear-gradient(110deg,#f4f8ee,#fff 58%,#eaf4e7);border-radius:0 0 24px 24px}
+.hero-copy{position:relative;z-index:1}
+.eyebrow{display:inline-block;margin:0 0 12px;padding:5px 15px;border-radius:99px;background:#e2f3df;color:var(--green);font-size:13px;font-weight:800;letter-spacing:.08em}
+.hero h1{margin:0;color:var(--forest);font-size:clamp(38px,5vw,62px);line-height:1.16;letter-spacing:-.04em}
+.hero h1 span{display:block;margin-top:8px;font-size:.53em;letter-spacing:0}
+.hero-lead{margin:20px 0 8px;font-size:clamp(18px,2vw,23px);font-weight:800;line-height:1.6}
+.hero-note{margin:0 0 24px;color:var(--muted);font-size:15px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border:1px solid #b9d2bd;border-radius:999px;color:var(--forest);font-weight:700;background:#fff}
+.hero-visual{min-height:270px;position:relative;display:grid;place-items:center}
+.laptop-scene{width:min(100%,440px);height:280px;position:relative;border-radius:24px;background:linear-gradient(145deg,#d9edd3,#f8fbf4);display:grid;place-items:center;overflow:hidden}
+.laptop-screen{width:72%;height:68%;border:10px solid #34483e;border-bottom-width:16px;border-radius:12px;background:linear-gradient(135deg,#fff,#d8f1d0);display:grid;place-items:center;box-shadow:0 12px 25px #183b2b22}
+.pixel-cat{font-size:74px;filter:drop-shadow(0 5px 2px #0001)}
+.screen-caption{font-size:13px;font-weight:800;color:var(--forest)}
+.laptop-base{position:absolute;bottom:37px;width:82%;height:13px;background:#899a8d;border-radius:2px 2px 15px 15px;box-shadow:0 9px 12px #183b2b22}
+.spark{position:absolute;color:#f4b51b;font-size:34px}.spark.one{top:25px;right:28px}.spark.two{bottom:30px;left:25px}
+.section{max-width:1080px;margin:0 auto;padding:54px 24px 0}
+.section-title{margin:0 0 22px;color:var(--forest);font-size:27px;line-height:1.4}
+.section-title small{display:block;margin-bottom:5px;color:var(--leaf);font-size:11px;letter-spacing:.14em}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.info-panel{padding:22px 24px;border-radius:16px;background:var(--soft)}
+.info-panel h2{margin:0 0 12px;font-size:21px;color:var(--forest)}
+.clean-list{margin:0;padding:0;list-style:none}
+.clean-list li{position:relative;padding:5px 0 5px 25px}
+.clean-list li:before{content:"✓";position:absolute;left:0;color:var(--leaf);font-weight:900}
+.month-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.month-column{overflow:hidden;border:1px solid var(--line);border-radius:14px}
+.month-column h3{margin:0;padding:12px 17px;background:#e7f4e5;color:var(--forest);font-size:18px}
+.month{display:grid;grid-template-columns:76px 1fr;gap:12px;align-items:start;padding:11px 15px;border-top:1px solid var(--line);font-size:13px}
+.month b{display:inline-block;padding:2px 8px;border-radius:99px;background:var(--green);color:white;text-align:center;font-size:12px}
+.project-band{display:grid;grid-template-columns:1fr 180px;gap:22px;align-items:center;padding:24px;border-radius:18px;background:#eaf7e9}
+.project-band h2{margin:0 0 8px;color:var(--forest);font-size:23px}
+.project-art{height:135px;border:8px solid #fff;border-radius:9px;background:linear-gradient(135deg,#dff3ff 0 35%,#7ab5ed 35% 65%,#f7e7a8 65%);display:grid;place-items:center;font-size:55px;box-shadow:0 5px 16px #163d2b20;transform:rotate(3deg)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.work-card{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:white}
+.work-image{height:155px;display:grid;place-items:center;background:var(--soft);font-size:60px}
+.work-body{padding:16px}
+.work-category{margin:0 0 5px;color:var(--leaf);font-size:12px;font-weight:800}
+.work-body h3{margin:0 0 7px;color:var(--forest);font-size:18px}
+.work-body p:last-child{margin:0;color:var(--muted);font-size:13px}
+.signup-wrap{max-width:1120px;margin:58px auto 54px;padding:0 20px;scroll-margin-top:25px}
+.signup{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:36px;border-radius:22px;background:linear-gradient(120deg,#e2f4df,#f3faef)}
+.signup-copy h2{margin:0 0 12px;color:var(--forest);font-size:clamp(27px,3vw,36px);line-height:1.4}
+.signup-copy p{margin:0;color:#43584a}
+.signup-copy .mini-note{margin-top:16px;font-size:13px;color:var(--muted)}
+.signup-form{padding:22px;background:#fff;border-radius:16px;box-shadow:0 8px 25px #1c513018}
+.signup-form h3{margin:0 0 14px;text-align:center;color:var(--forest);font-size:19px}
+.field{margin-bottom:11px}
+.field label{display:block;margin-bottom:4px;font-size:12px;font-weight:700;color:#52645a}
+.field input,.field textarea,.field select{width:100%;padding:12px 13px;border:1px solid #d8e1da;border-radius:8px;background:#fff;color:var(--ink);outline:none}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--leaf);box-shadow:0 0 0 3px #43865318}
+.field textarea{min-height:76px;resize:vertical}
+.submit{width:100%;padding:14px;border:0;border-radius:999px;background:var(--orange);color:#fff;font-weight:800;font-size:17px;cursor:pointer}
+.submit:hover{background:#e77d00}
+.form-note{margin:10px 0 0;color:var(--muted);font-size:11px;line-height:1.6}
+.site-footer{padding:24px max(24px,calc((100% - 1080px)/2));background:var(--forest);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:18px;font-size:13px}
+.site-footer .brand{color:#fff}.site-footer p{margin:0}
+@media(max-width:760px){
+ .site-header{height:auto;min-height:64px;padding:12px 18px}.nav{gap:12px}.nav a:not(.nav-cta){display:none}
+ .hero{grid-template-columns:1fr;padding:40px 24px 30px;text-align:center}.hero-actions{justify-content:center}.hero-visual{min-height:220px}.laptop-scene{height:220px}
+ .two-col,.month-grid,.signup{grid-template-columns:1fr}.works{grid-template-columns:1fr 1fr}
+ .project-band{grid-template-columns:1fr 120px}.project-art{height:110px}
+ .signup{padding:24px}.site-footer{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+ body{font-size:14px}.brand{font-size:22px}.hero h1{font-size:39px}.section{padding:42px 17px 0}.section-title{font-size:24px}
+ .works{grid-template-columns:1fr}.project-band{grid-template-columns:1fr}.project-art{display:none}
+ .signup-wrap{padding:0 14px;margin:42px auto}.signup{padding:20px 15px}.signup-form{padding:17px 13px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#" aria-label="Advan ホーム"><span class="brand-mark">A</span>Advan</a>
+  <nav class="nav" aria-label="メインナビゲーション">
+    <a href="#curriculum">カリキュラム</a>
+    <a href="#works">作品紹介</a>
+    <a href="#signup" class="nav-cta">無料体験を申し込む</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">KIDS PROGRAMMING</p>
+      <h1>Scratch 3－6<span>（小学3～6年生）</span></h1>
+      <p class="hero-lead">英語で学ぶキッズプログラミング<br>オンラインレッスン</p>
+      <p class="hero-note">つくる楽しさが、未来をひらく。</p>
+      <div class="hero-actions">
+        <a class="btn" href="#signup">無料体験レッスンに申し込む</a>
+        <a class="btn-secondary" href="#curriculum">コース内容を見る</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Scratchでプログラミングを学ぶイメージ">
+      <div class="laptop-scene">
+        <span class="spark one">✦</span><span class="spark two">✧</span>
+        <div class="laptop-screen"><div class="pixel-cat">🐱</div><div class="screen-caption">LET'S CREATE!</div></div>
+        <div class="laptop-base"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="two-col">
+      <div class="info-panel">
+        <h2>コース概要</h2>
+        <ul class="clean-list">
+          <li>対象：小学3～6年生程度</li>
+          <li>英語：初心者歓迎（日本語サポートあり）</li>
+          <li>形式：少人数オンラインライブ授業（定員3名）</li>
+          <li>回数：月2回</li>
+          <li>授業時間：45分×2コマ＋休憩10分</li>
+          <li>期間：12か月（基礎6か月＋応用6か月）</li>
+        </ul>
+      </div>
+      <div class="info-panel">
+        <h2>学習目標</h2>
+        <ul class="clean-list">
+          <li>順次処理・繰り返し・条件分岐を理解する。</li>
+          <li>自分のアイデアをプログラムで形にする。</li>
+          <li>作品を簡単な英語で紹介する。</li>
+          <li>プログラムを試し、間違いを見つけて修正する。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="curriculum">
+    <h2 class="section-title"><small>12 MONTHS</small>カリキュラム</h2>
+    <div class="month-grid">
+      <div class="month-column">
+        <h3>Scratch 基礎（1～6か月目）</h3>
+        <div class="month"><b>1か月目</b><span>Scratchの基本：基本操作・動き・会話・イベント</span></div>
+        <div class="month"><b>2か月目</b><span>動きと操作：座標・キー操作・条件分岐</span></div>
+        <div class="month"><b>3か月目</b><span>基礎の復習：基本ブロック・ミニ作品制作</span></div>
+        <div class="month"><b>4か月目</b><span>作品を改造する：スプライト・速さ・背景</span></div>
+        <div class="month"><b>5か月目</b><span>作品制作：計画・制作・テスト・発表</span></div>
+        <div class="month"><b>6か月目</b><span>基礎のまとめ：総復習・模擬演習・Entry受験</span></div>
+      </div>
+      <div class="month-column">
+        <h3>Scratch 応用（7～12か月目）</h3>
+        <div class="month"><b>7か月目</b><span>変数を使う：マラソンゲーム・速度・周回数</span></div>
+        <div class="month"><b>8か月目</b><span>条件とメッセージ：終了条件・連携</span></div>
+        <div class="month"><b>9か月目</b><span>応用の復習：変数・デバッグ・ミニ制作</span></div>
+        <div class="month"><b>10か月目</b><span>ゲームを設計する：得点・制限時間</span></div>
+        <div class="month"><b>11か月目</b><span>修了作品制作：相互テスト・改善・発表</span></div>
+        <div class="month"><b>12か月目</b><span>応用のまとめ：総復習・模擬演習・Bronze受験</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="project-band">
+      <div>
+        <h2>作品制作・修了評価</h2>
+        <ul class="clean-list">
+          <li>学んだブロックを使って、自分の作品を作る。</li>
+          <li>作品を簡単な英語で紹介する。</li>
+          <li>講師が理解度や作品の完成度を確認する。</li>
+          <li>ジュニア・プログラミング検定に挑戦する。</li>
+        </ul>
+        <p class="form-note">※受験級・受験方式・実施時期は、習熟度や実施条件を確認して決定します。</p>
+      </div>
+      <div class="project-art" aria-hidden="true">🎮</div>
+    </div>
+  </section>
+
+  <section class="section" id="works">
+    <h2 class="section-title"><small>SCRATCH PROJECTS</small>生徒さんの作品紹介</h2>
+    <p style="color:var(--muted);margin-top:-12px;margin-bottom:20px">Scratchでつくった作品をご紹介します。アイデアを考え、プログラムを組み、自分だけの作品に仕上げました。</p>
+    <div class="works">
+      <article class="work-card">
+        <div class="work-image" role="img" aria-label="迷路ゲームのイメージ">🧩</div>
+        <div class="work-body"><p class="work-category">Scratch｜ゲーム</p><h3>迷路ゲーム</h3><p>キャラクターを操作して、ゴールを目指すゲームです。壁にぶつからないようにプログラムしました。</p></div>
+      </article>
+      <article class="work-card">
+        <div class="work-image" role="img" aria-label="ピクセルアートのイメージ">🎨</div>
+        <div class="work-body"><p class="work-category">Scratch｜アート</p><h3>ピクセルアート</h3><p>色や形を工夫しながら、ドット絵の作品をつくりました。</p></div>
+      </article>
+      <article class="work-card">
+        <div class="work-image" role="img" aria-label="アニメーションのイメージ">🎬</div>
+        <div class="work-body"><p class="work-category">Scratch｜アニメーション</p><h3>キャラクターアニメーション</h3><p>キャラクターの動きや背景を組み合わせて、オリジナルのアニメーションをつくりました。</p></div>
+      </article>
+    </div>
+    <p class="form-note">※作品画像はサンプルです。実際の生徒作品の画像に差し替えてご利用ください。</p>
+  </section>
+
+  <section class="signup-wrap" id="signup">
+    <div class="signup">
+      <div class="signup-copy">
+        <p class="eyebrow">FREE TRIAL LESSON</p>
+        <h2>さあ、Scratchで<br>はじめてみよう！</h2>
+        <p>お子さまの「やってみたい！」を応援します。<br>まずは無料体験レッスンから！</p>
+        <p class="mini-note">プログラミングが初めてでも大丈夫。日本語でサポートします。</p>
+      </div>
+      <form class="signup-form" action="#" method="post">
+        <h3>無料体験レッスンに申し込む</h3>
+        <div class="field">
+          <label for="parent-name">保護者のお名前</label>
+          <input id="parent-name" name="parent_name" type="text" placeholder="例：山田 太郎" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="child-name">お子さまのお名前</label>
+          <input id="child-name" name="child_name" type="text" placeholder="例：山田 花子" required>
+        </div>
+        <div class="field">
+          <label for="grade">学年</label>
+          <select id="grade" name="grade" required>
+            <option value="">選択してください</option>
+            <option>小学3年生</option><option>小学4年生</option>
+            <option>小学5年生</option><option>小学6年生</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="email">メールアドレス</label>
+          <input id="email" name="email" type="email" placeholder="example@email.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">ご質問・ご希望（任意）</label>
+          <textarea id="message" name="message" placeholder="ご希望の曜日や時間など"></textarea>
+        </div>
+        <button class="submit" type="submit">無料体験を申し込む　›</button>
+        <p class="form-note">送信フォームはサンプルです。実際に受付するには、Googleフォームやお問い合わせシステムなどへの接続が必要です。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <a class="brand" href="#"><span class="brand-mark">A</span>Advan</a>
+  <p>Scratchを通して、考える力・創造力・問題解決力を育てます。</p>
+  <p><a href="#">プライバシーポリシー</a>　 <a href="#signup">お問い合わせ</a></p>
+</footer>
+</body>
+</html>
