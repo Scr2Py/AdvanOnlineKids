@@ -345,7 +345,7 @@ select {
 
 
 /* Project */
-.project-band {
+/* .project-band {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -366,6 +366,48 @@ select {
   max-width: 260px;
   height: auto;
   margin: 0 auto;
+} */
+
+  .project-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.project-band img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Bild links */
+.project-band.image-left > div:first-child {
+  order: 1;
+}
+
+/* Bild rechts */
+.project-band.image-right > div:first-child {
+  order: 0;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .project-band {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-band > div {
+    order: initial !important;
+  }
+
+  .project-band img {
+    height: auto;
+  }
 }
 
 /* Student projects */
