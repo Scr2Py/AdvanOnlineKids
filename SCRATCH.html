@@ -302,30 +302,47 @@ select {
 
 
 /* Curriculum */
-.month-column {
-  border: 1px solid var(--line);
+
+/* Table 4 Col */
+.table4Col table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
-.month-column h3 {
-  margin: 0;
-  padding: 11px 15px;
-  background: var(--light-green);
-  color: var(--dark-green);
-  font-size: 17px;
+.table4Col th,
+.table4Col td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.month {
-  display: grid;
-  grid-template-columns: 85px 1fr;
-  gap: 10px;
-  padding: 10px 14px;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
+.table4Col th:nth-child(1),
+.table4Col td:nth-child(1) {
+  width: 12%;
 }
 
-.month b {
-  color: var(--green);
+.table4Col th:nth-child(2),
+.table4Col td:nth-child(2) {
+  width: 30%;
 }
+
+.table4Col th:nth-child(3),
+.table4Col td:nth-child(3) {
+  width: 30%;
+}
+
+.table4Col th:nth-child(4),
+.table4Col td:nth-child(4) {
+  width: 28%;
+}
+
+.table4Col thead th {
+  border-bottom: 2px solid #d5d5d5;
+}
+
+
 
 /* Project */
 .project-band {
@@ -775,29 +792,131 @@ select {
 
   
 /* Curriculum */
-  <section class="section" id="curriculum">
-    <h2 class="section-title"><small>12 MONTHS</small>カリキュラム</h2>
-    <div class="month-grid">
-      <div class="month-column">
-        <h3>Scratch 基礎（1～6か月目）</h3>
-        <div class="month"><b>1か月目</b><span>Scratchの基本：基本操作・動き・会話・イベント</span></div>
-        <div class="month"><b>2か月目</b><span>動きと操作：座標・キー操作・条件分岐</span></div>
-        <div class="month"><b>3か月目</b><span>基礎の復習：基本ブロック・ミニ作品制作</span></div>
-        <div class="month"><b>4か月目</b><span>作品を改造する：スプライト・速さ・背景</span></div>
-        <div class="month"><b>5か月目</b><span>作品制作：計画・制作・テスト・発表</span></div>
-        <div class="month"><b>6か月目</b><span>基礎のまとめ：総復習・模擬演習・Entry受験</span></div>
-      </div>
-      <div class="month-column">
-        <h3>Scratch 応用（7～12か月目）</h3>
-        <div class="month"><b>7か月目</b><span>変数を使う：マラソンゲーム・速度・周回数</span></div>
-        <div class="month"><b>8か月目</b><span>条件とメッセージ：終了条件・連携</span></div>
-        <div class="month"><b>9か月目</b><span>応用の復習：変数・デバッグ・ミニ制作</span></div>
-        <div class="month"><b>10か月目</b><span>ゲームを設計する：得点・制限時間</span></div>
-        <div class="month"><b>11か月目</b><span>修了作品制作：相互テスト・改善・発表</span></div>
-        <div class="month"><b>12か月目</b><span>応用のまとめ：総復習・模擬演習・Bronze受験</span></div>
-      </div>
-    </div>
-  </section>
+
+<section class="section" id="scratch-basic">
+  <h2 class="section-title"><small>SCRATCH BASIC / 6 MONTHS</small>Scratch基礎｜6か月・24コマ</h2>
+
+  <p>
+    到達目標：簡単なゲームを作り、動作の理由と自分の工夫を説明できる。
+  </p>
+
+  <div class="table4Col">
+    <table>
+      <thead>
+        <tr>
+          <th>月</th>
+          <th>第1回（45分×2コマ）</th>
+          <th>第2回（45分×2コマ）</th>
+          <th>英語のテーマ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1か月目</td>
+          <td>
+            (1) 基本操作・実行と停止<br>
+            (2) 動く・話す・保存する
+          </td>
+          <td>
+            (3) 順番に命令する<br>
+            (4) イベントと繰り返し
+          </td>
+          <td>あいさつ、名前、色、数字</td>
+        </tr>
+        <tr>
+          <td>2か月目</td>
+          <td>
+            (5) 向きと座標<br>
+            (6) キー操作で動かす
+          </td>
+          <td>
+            (7) 条件による動作<br>
+            (8) 追いかけっこゲーム制作
+          </td>
+          <td>left / right / up / down、動物</td>
+        </tr>
+        <tr>
+          <td>3か月目</td>
+          <td>
+            (9) 基本ブロックの復習<br>
+            (10) 間違ったコードの修正
+          </td>
+          <td>
+            (11) 条件付きのミニ制作<br>
+            (12) 作品発表・理解度確認
+          </td>
+          <td>動作予測、困ったときの質問</td>
+        </tr>
+        <tr>
+          <td>4か月目</td>
+          <td>
+            (13) 第1章の課題を再制作<br>
+            (14) 複数スプライトの動作確認
+          </td>
+          <td>
+            (15) 速さ・背景・音を変更<br>
+            (16) 変更による違いを説明
+          </td>
+          <td>fast / slow、音、見た目</td>
+        </tr>
+        <tr>
+          <td>5か月目</td>
+          <td>
+            (17) 修了作品の計画<br>
+            (18) 基本部分の制作
+          </td>
+          <td>
+            (19) 改造・テスト・修正<br>
+            (20) 完成作品の発表
+          </td>
+          <td>希望、選択、作品紹介</td>
+        </tr>
+        <tr>
+          <td>6か月目</td>
+          <td>
+            (21) 総復習・条件の読み取り<br>
+            (22) 時間を計った模擬演習
+          </td>
+          <td>
+            (23) 弱点補強・受験準備<br>
+            (24) Entry受験枠
+          </td>
+          <td>学習の振り返り、できたこと</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>基礎修了時の確認項目</h3>
+
+  <div class="table2Col">
+    <table>
+      <tbody>
+        <tr>
+          <td>プログラミング</td>
+          <td>順次処理・繰り返し・条件分岐を使える。</td>
+        </tr>
+        <tr>
+          <td>応用力</td>
+          <td>見本を丸写しせず、指定条件に沿って変更できる。</td>
+        </tr>
+        <tr>
+          <td>作品管理</td>
+          <td>保存した作品を再び開き、修正できる。</td>
+        </tr>
+        <tr>
+          <td>英語</td>
+          <td>短い英語で作品名や操作方法を紹介できる。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    3か月目に基礎の復習と理解度確認、6か月目に総復習と検定受験を配置します。
+  </p>
+</section>
+
 
   <section class="section">
     <div class="project-band">
