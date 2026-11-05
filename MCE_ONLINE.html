@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="マインクラフトを通じて、子どもたちが自由に発想し、創造する楽しさや、仲間と協力する喜びを体験できるプログラムです。">
+<title>国際マイクラ体験｜INTERNATIONAL MINECRAFT EXPERIENCE</title>
+<style>
+:root {
+  --green: #287346;
+  --dark-green: #17452d;
+  --light-green: #f2f7f1;
+  --text: #26352b;
+  --muted: #68756c;
+  --line: #dfe7e0;
+  --orange: #ed941d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #ed941d;
+  outline-offset: 3px;
+}
+
+/* Header */
+.site-header {
+  min-height: 64px;
+  padding: 10px max(20px, calc((100% - 1000px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--dark-green);
+  font-size: 23px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  font-size: 16px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav a:hover,
+.work-link:hover {
+  text-decoration: underline;
+}
+
+.nav-cta,
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 5px;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 9px 17px;
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  color: var(--dark-green);
+  background: #fff;
+  font-weight: 700;
+}
+
+/* Hero */
+.hero {
+  padding: 48px 20px;
+  background: var(--light-green);
+  text-align: center;
+}
+
+.hero-copy {
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--dark-green);
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.35;
+}
+
+.hero h1 span {
+  display: block;
+  margin-top: 5px;
+  font-size: .55em;
+}
+
+.hero-lead {
+  margin: 16px 0 6px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.hero-note {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+}
+
+/* Page sections */
+.section {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 45px 20px 0;
+}
+
+.section-title {
+  margin: 0 0 18px;
+  color: var(--dark-green);
+  font-size: 25px;
+  line-height: 1.5;
+}
+
+.section-title small {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.two-col,
+.month-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.info-panel {
+  padding: 18px 20px;
+  background: var(--light-green);
+}
+
+.info-panel h2 {
+  margin: 0 0 8px;
+  color: var(--dark-green);
+  font-size: 19px;
+}
+
+.clean-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clean-list li {
+  position: relative;
+  padding: 4px 0 4px 22px;
+}
+
+.clean-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 800;
+}
+
+
+/* Table 3 Col */
+.table3Col table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table3Col th,
+.table3Col td {
+  text-align: left;
+  padding: 12px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table3Col th:nth-child(1),
+.table3Col td:nth-child(1) {
+  width: 25%;
+}
+
+.table3Col th:nth-child(2),
+.table3Col td:nth-child(2) {
+  width: 45%;
+}
+
+.table3Col th:nth-child(3),
+.table3Col td:nth-child(3) {
+  width: 30%;
+}
+
+.table3Col thead th {
+  border-bottom: 2px solid #d5d5d5;
+}
+
+
+/* Table 2 Col */
+.table2Col table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table2Col th,
+.table2Col td {
+  text-align: left;
+  padding: 12px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table2Col th:nth-child(1),
+.table2Col td:nth-child(1) {
+  width: 30%;
+}
+
+.table2Col th:nth-child(2),
+.table2Col td:nth-child(2) {
+  width: 70%;
+}
+
+.table2Col thead th {
+  border-bottom: 2px solid #d5d5d5;
+}
+
+
+
+/* Keep data tables readable on narrow screens. */
+.table2Col,
+.table3Col,
+.table4Col {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table2Col table { min-width: 480px; }
+.table3Col table { min-width: 600px; }
+.table4Col table { min-width: 760px; }
+
+/* Curriculum */
+
+/* Table 4 Col */
+.table4Col table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table4Col th,
+.table4Col td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table4Col th:nth-child(1),
+.table4Col td:nth-child(1) {
+  width: 12%;
+}
+
+.table4Col th:nth-child(2),
+.table4Col td:nth-child(2) {
+  width: 30%;
+}
+
+.table4Col th:nth-child(3),
+.table4Col td:nth-child(3) {
+  width: 30%;
+}
+
+.table4Col th:nth-child(4),
+.table4Col td:nth-child(4) {
+  width: 28%;
+}
+
+.table4Col thead th {
+  border-bottom: 2px solid #d5d5d5;
+}
+
+
+
+/* Project */
+
+  .project-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.project-band img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .project-band {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-band > div {
+    order: initial !important;
+  }
+
+  .project-band img {
+    height: auto;
+  }
+}
+
+/* Student projects */
+.works-lead {
+  margin: -8px 0 5px;
+  color: var(--dark-green);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.works-intro {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.works-subtitle {
+  margin: 0 0 14px;
+  color: var(--dark-green);
+  font-size: 18px;
+}
+
+.works {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.work-card {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.work-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #18251d;
+}
+
+.work-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-body {
+  padding: 15px 17px 18px;
+}
+
+.work-category {
+  margin: 0 0 5px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+.work-body h3 {
+  margin: 0 0 6px;
+  color: var(--dark-green);
+  font-size: 18px;
+}
+
+.work-body p:not(.work-category) {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.work-link {
+  display: inline-block;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Signup */
+.signup-wrap {
+  max-width: 820px;
+  margin: 48px auto;
+  padding: 0 20px;
+  scroll-margin-top: 20px;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 22px;
+  background: var(--light-green);
+}
+
+.signup-copy h2 {
+  margin: 0 0 10px;
+  color: var(--dark-green);
+  font-size: 27px;
+  line-height: 1.45;
+}
+
+.signup-copy p {
+  margin: 0;
+}
+
+.signup-copy .mini-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.signup-form {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.signup-form h3 {
+  margin: 0 0 14px;
+  color: var(--dark-green);
+  font-size: 18px;
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 11px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfdacf;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--text);
+}
+
+.field textarea {
+  min-height: 76px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid #b7d8bf;
+  outline-offset: 1px;
+}
+
+.submit {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Footer */
+.site-footer {
+  padding: 22px 20px;
+  background: var(--dark-green);
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.site-footer .brand {
+  color: #fff;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 650px) {
+  .site-header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .nav a:not(.nav-cta) {
+    display: none;
+  }
+
+  .hero {
+    padding: 38px 16px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .section {
+    padding: 38px 16px 0;
+  }
+
+  .month {
+    grid-template-columns: 78px 1fr;
+    font-size: 12px;
+  }
+
+  .signup-wrap {
+    margin: 38px auto;
+    padding: 0 14px;
+  }
+
+  .signup {
+    padding: 17px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Advan ホーム"><span class="brand-mark">A</span>Advan</a>
+  <nav class="nav" aria-label="メインナビゲーション">
+    <a href="index.html">ホーム</a>
+    <a href="#contents">イベント内容</a>
+    <a href="#works">作品紹介</a>
+    <a href="#signup" class="nav-cta">無料体験を申し込む</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">INTERNATIONAL MINECRAFT EXPERIENCE</p>
+      <h1>国際マイクラ体験<span>マインクラフトで広がる、<br>創造力とコミュニケーション。</span></h1>
+      <p class="hero-lead">地域の子どもたちに届ける、楽しいデジタル体験</p>
+      <p class="hero-note">マインクラフトを通じて、子どもたちが自由に発想し、創造する楽しさや、仲間と協力する喜びを体験できるプログラムです。</p>
+      <div class="hero-actions">
+        <a class="btn" href="#signup">まずは1回、お試し開催から</a>
+        <a class="btn-secondary" href="#contents">イベント内容を見る</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="国際マイクラ体験">
+      <img
+        src="images_mce_int_event/mce_int_event_teacher.png"
+        alt="国際マイクラ体験"
+        class="hero-image"
+      >
+    </div>
+  </section>
+    <section class="section">
+      <div class="project-band image-right">
+        <div>
+          <h2>作品制作・修了評価</h2>
+          <ul class="clean-list">
+            <li>学んだブロックを使って、自分の作品を作る。</li>
+            <li>作品を簡単な英語で紹介する。</li>
+            <li>講師が理解度や作品の完成度を確認する。</li>
+            <li>ジュニア・プログラミング検定に挑戦する。</li>
+          </ul>
+          <p class="form-note">
+            ※受験級・受験方式・実施時期は、習熟度や実施条件を確認して決定します。
+          </p>
+        </div>
+      
+        <div>
+          <img src="images/scratch_student01.png"
+               alt="Scratchでプログラミングを学ぶ生徒">
+        </div>
+      </div>
+        </section>
+
+
+  
+        <section class="section">
+        <div class="project-band image-left">
+        <div>
+          <img src="images/scratch_student01.png"
+               alt="Scratchでプログラミングを学ぶ生徒">
+        </div>
+      
+        <div>
+          <h2>作品制作・修了評価XXXXXXXXXXXXXXXXXXXXX</h2>
+          <ul class="clean-list">
+            <li>学んだブロックを使って、自分の作品を作る。</li>
+            <li>作品を簡単な英語で紹介する。</li>
+            <li>講師が理解度や作品の完成度を確認する。</li>
+            <li>ジュニア・プログラミング検定に挑戦する。</li>
+          </ul>
+          <p class="form-note">
+            ※受験級・受験方式・実施時期は、習熟度や実施条件を確認して決定します。
+          </p>
+        </div>
+      </div>
+      </section>
+
+
+  
+  <section class="section">
+    <div class="two-col">
+      <div class="info-panel">
+        <h2>学習目標</h2>
+        <ul class="clean-list">
+          <li>順次処理・繰り返し・条件分岐を理解する。</li>
+          <li>自分のアイデアをプログラムで形にする。</li>
+          <li>作品を簡単な英語で紹介する。</li>
+          <li>プログラムを試し、間違いを見つけて修正する。</li>
+        </ul>
+      </div>
+      <div class="info-panel">
+        <h2>コース概要</h2>
+        <ul class="clean-list">
+          <li>対象・英語力：小学3〜6年生程度から／PCの基本操作ができる方。英語初心者から参加可能。必要に応じて日本語で補足。</li>
+          <li>授業形式・定員：外国人講師によるオンラインライブ授業／1クラス3名・固定曜日・固定メンバー</li>
+          <li>開催頻度・時間：月2回／1回45分×2コマ＋途中休憩10分＝100分</li>
+          <li>半年の授業数：12回・24コマ／実学習18時間</li>
+          <li>受講料：月謝9,000円／6か月前納50,000円</li>
+          <li>教材費・検定料：別途徴収する案</li>
+          <li>評価：半年ごとの作品発表・検定受験・講師による到達度評価<br>※料金は税込として企画。受講管理費は、募集時に追加負担の有無を明記します。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<!-- Textbook -->
+<section class="section" id="textbook">
+  <h2 class="section-title"><small>TEXTBOOK</small>採用テキスト</h2>
+
+  <h3>Scratch3.0で楽しむ レッツ！プログラミング</h3>
+  <p>ジュニア・プログラミング検定 公式テキスト</p>
+
+  <div class="table2Col">
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>出版社・定価</td>
+          <td>FOM出版／2,750円（税込）</td>
+        </tr>
+        <tr>
+          <td>型番・ISBN</td>
+          <td>FPT1901／978-4-86510-392-2</td>
+        </tr>
+        <tr>
+          <td>使用範囲</td>
+          <td>基礎：導入・第1章／応用：第2章中心、習熟度に応じて第3章</td>
+        </tr>
+        <tr>
+          <td>補助教材</td>
+          <td>英語フレーズ表、改造課題、検定形式の練習課題</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    本書は全4級に対応し、各章に練習問題があります。
+    1年間で無理に全章を終えず、反復と自力制作に時間を使います。
+    以下は書籍の題材に講師作成の改造課題を組み合わせた企画案です。
+  </p>
+</section>
+<!-- Curriculum -->
+
+<section class="section" id="contents">
+  <h2 class="section-title"><small>SCRATCH BASIC / 6 MONTHS</small>Scratch基礎｜6か月・24コマ</h2>
+
+  <p>
+    到達目標：簡単なゲームを作り、動作の理由と自分の工夫を説明できる。
+  </p>
+
+  <div class="table4Col">
+    <table>
+      <thead>
+        <tr>
+          <th>月</th>
+          <th>第1回（45分×2コマ）</th>
+          <th>第2回（45分×2コマ）</th>
+          <th>英語のテーマ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1か月目</td>
+          <td>
+            (1) 基本操作・実行と停止<br>
+            (2) 動く・話す・保存する
+          </td>
+          <td>
+            (3) 順番に命令する<br>
+            (4) イベントと繰り返し
+          </td>
+          <td>あいさつ、名前、色、数字</td>
+        </tr>
+        <tr>
+          <td>2か月目</td>
+          <td>
+            (5) 向きと座標<br>
+            (6) キー操作で動かす
+          </td>
+          <td>
+            (7) 条件による動作<br>
+            (8) 追いかけっこゲーム制作
+          </td>
+          <td>left / right / up / down、動物</td>
+        </tr>
+        <tr>
+          <td>3か月目</td>
+          <td>
+            (9) 基本ブロックの復習<br>
+            (10) 間違ったコードの修正
+          </td>
+          <td>
+            (11) 条件付きのミニ制作<br>
+            (12) 作品発表・理解度確認
+          </td>
+          <td>動作予測、困ったときの質問</td>
+        </tr>
+        <tr>
+          <td>4か月目</td>
+          <td>
+            (13) 第1章の課題を再制作<br>
+            (14) 複数スプライトの動作確認
+          </td>
+          <td>
+            (15) 速さ・背景・音を変更<br>
+            (16) 変更による違いを説明
+          </td>
+          <td>fast / slow、音、見た目</td>
+        </tr>
+        <tr>
+          <td>5か月目</td>
+          <td>
+            (17) 修了作品の計画<br>
+            (18) 基本部分の制作
+          </td>
+          <td>
+            (19) 改造・テスト・修正<br>
+            (20) 完成作品の発表
+          </td>
+          <td>希望、選択、作品紹介</td>
+        </tr>
+        <tr>
+          <td>6か月目</td>
+          <td>
+            (21) 総復習・条件の読み取り<br>
+            (22) 時間を計った模擬演習
+          </td>
+          <td>
+            (23) 弱点補強・受験準備<br>
+            (24) Entry受験枠
+          </td>
+          <td>学習の振り返り、できたこと</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>基礎修了時の確認項目</h3>
+
+  <div class="table2Col">
+    <table>
+      <tbody>
+        <tr>
+          <td>プログラミング</td>
+          <td>順次処理・繰り返し・条件分岐を使える。</td>
+        </tr>
+        <tr>
+          <td>応用力</td>
+          <td>見本を丸写しせず、指定条件に沿って変更できる。</td>
+        </tr>
+        <tr>
+          <td>作品管理</td>
+          <td>保存した作品を再び開き、修正できる。</td>
+        </tr>
+        <tr>
+          <td>英語</td>
+          <td>短い英語で作品名や操作方法を紹介できる。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    3か月目に基礎の復習と理解度確認、6か月目に総復習と検定受験を配置します。
+  </p>
+</section>
+
+<!-- Curriculum -->
+ 
+<section class="section" id="scratch-advanced">
+  <h2 class="section-title">
+    <small>SCRATCH ADVANCED / 6 MONTHS</small>
+    Scratch応用｜6か月・24コマ
+  </h2>
+
+  <p>
+    到達目標：得点や終了条件のあるゲームを設計し、不具合を見つけて改善できる。
+  </p>
+
+  <div class="table4Col">
+    <table>
+      <thead>
+        <tr>
+          <th>月</th>
+          <th>第1回（45分×2コマ）</th>
+          <th>第2回（45分×2コマ）</th>
+          <th>英語のテーマ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>7か月目</td>
+          <td>
+            (1) 基礎の確認・開始時の設定<br>
+            (2) マラソンゲームの基本制作
+          </td>
+          <td>
+            (3) 変数の考え方<br>
+            (4) 速度・周回数を管理する
+          </td>
+          <td>speed / lap<br>数と比較</td>
+        </tr>
+        <tr>
+          <td>8か月目</td>
+          <td>
+            (5) 条件と繰り返しの組み合わせ<br>
+            (6) ゲームの終了条件
+          </td>
+          <td>
+            (7) メッセージによる連携<br>
+            (8) 開始・プレイ・終了の切り替え
+          </td>
+          <td>start / finish<br>win / lose</td>
+        </tr>
+        <tr>
+          <td>9か月目</td>
+          <td>
+            (9) 変数・条件・連携の復習<br>
+            (10) デバッグ演習
+          </td>
+          <td>
+            (11) 指定条件による制作<br>
+            (12) 途中作品の発表・到達度確認
+          </td>
+          <td>原因・変更・結果を伝える</td>
+        </tr>
+        <tr>
+          <td>10か月目</td>
+          <td>
+            (13) 得点・制限時間のあるゲーム<br>
+            (14) 難易度を変える仕組み
+          </td>
+          <td>
+            (15) 修了作品の仕様を決める<br>
+            (16) 設計図・処理の流れを作る
+          </td>
+          <td>score / time<br>ルールの説明</td>
+        </tr>
+        <tr>
+          <td>11か月目</td>
+          <td>
+            (17) 修了作品の制作①<br>
+            (18) 修了作品の制作②
+          </td>
+          <td>
+            (19) 相互テスト・改善<br>
+            (20) 作品発表
+          </td>
+          <td>工夫の説明<br>質問と感想</td>
+        </tr>
+        <tr>
+          <td>12か月目</td>
+          <td>
+            (21) 総復習・受験級別対策<br>
+            (22) 模擬演習
+          </td>
+          <td>
+            (23) 弱点補強・受験準備<br>
+            (24) Bronze等の受験枠
+          </td>
+          <td>振り返り<br>次の目標</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>受験級の決め方</h3>
+
+  <p>
+    9か月目の到達度確認で受験級を決めます。
+    Silverを目指す生徒は、第3章の題材を使い、
+    複数条件や処理の組み合わせを重点的に練習します。
+  </p>
+
+  <h3>復習と制作のバランス</h3>
+
+  <p>
+    基礎の学習内容を応用作品で使い直し、
+    9か月目に復習、11か月目に作品発表、
+    12か月目に総復習と受験を配置します。
+  </p>
+</section>
+
+
+<section class="section" id="python-progression">
+  <h2 class="section-title">
+    <small>PYTHON PROGRESSION</small>
+    Pythonへの進級設計
+  </h2>
+
+  <p>
+    Scratch応用修了後は、Python基礎6か月→Python応用6か月を継続先として設ける案です。
+    授業頻度・定員・料金は同条件を基本とします。
+  </p>
+
+  <div class="table3Col">
+    <table>
+      <thead>
+        <tr>
+          <th>段階</th>
+          <th>主な内容</th>
+          <th>制作例・修了評価</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Python基礎<br>前半3か月</td>
+          <td>
+            入力・実行,
+            変数,
+            数値と文字列,
+            条件分岐,
+            繰り返し
+          </td>
+          <td>
+            数当て,
+            簡単なクイズ,
+            3か月目に復習
+          </td>
+        </tr>
+        <tr>
+          <td>Python基礎<br>後半3か月</td>
+          <td>
+            リスト,
+            関数,
+            入力チェック,
+            エラーの修正
+          </td>
+          <td>
+            オリジナルクイズ等,
+            作品発表,
+            検定受験
+          </td>
+        </tr>
+        <tr>
+          <td>Python応用<br>6か月</td>
+          <td>
+            処理の分割,
+            データの扱い,
+            機能追加,
+            テスト
+          </td>
+          <td>
+            自作ゲーム,
+            小さなツール,
+            復習・作品発表・検定受験
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section" id="scratch-to-python">
+  <h2 class="section-title">
+    <small>SCRATCH TO PYTHON</small>
+    Scratchからコードへの橋渡し
+  </h2>
+
+  <p>
+    ScratchのブロックとPythonのコードを対応させて教えます。
+  </p>
+
+  <div class="table2Col">
+    <table>
+      <thead>
+        <tr>
+          <th>Scratchで学んだ考え方</th>
+          <th>Pythonでの学習</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>もし〜なら</td>
+          <td>if</td>
+        </tr>
+        <tr>
+          <td>繰り返す</td>
+          <td>for・while</td>
+        </tr>
+        <tr>
+          <td>変数</td>
+          <td>数値・文字列を保持する</td>
+        </tr>
+        <tr>
+          <td>リスト</td>
+          <td>複数のデータをまとめる</td>
+        </tr>
+        <tr>
+          <td>定義ブロック</td>
+          <td>関数</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>検定の位置づけ</h3>
+
+  <p>
+    候補はサーティファイ「Pythonプログラミング能力認定試験3級」です。
+    ただし、同試験は高校・若年層向けスクールなどの入門水準を想定しています。
+  </p>
+
+  <p>
+    小学生が半年18時間で必ず到達するとは設定せず、
+    教材とサンプル問題を照合して受験時期を決定します。
+  </p>
+
+  <p>
+    Pythonも半年ごとの検定受験を組み込む方針としつつ、
+    外部検定の選定はPython講座募集前の確定事項とします。
+  </p>
+</section>
+
+  <section class="section">
+    <div class="project-band">
+      <div>
+        <h2>作品制作・修了評価</h2>
+        <ul class="clean-list">
+          <li>学んだブロックを使って、自分の作品を作る。</li>
+          <li>作品を簡単な英語で紹介する。</li>
+          <li>講師が理解度や作品の完成度を確認する。</li>
+          <li>ジュニア・プログラミング検定に挑戦する。</li>
+        </ul>
+        <p class="form-note">※受験級・受験方式・実施時期は、習熟度や実施条件を確認して決定します。</p>
+      </div>
+      <div><img src="images/scratch_student01.png" alt="Scratchでプログラミングを学ぶ生徒"></div>
+    </div>
+  </section>
+
+<section class="section" id="works">
+  <h2 class="section-title">
+    <small>ONLINE KIDS PROGRAMMING</small>
+    オンラインキッズプログラミング
+  </h2>
+
+  <p class="works-lead">
+    自分のアイデアをカタチにしよう。
+  </p>
+
+  <p class="works-intro">
+    Scratchを使って、ゲームやアニメーションをつくります。
+    プログラミングを学びながら、自分だけの作品を完成させよう！
+  </p>
+
+  <h3 class="works-subtitle">Scratch｜2Dゲームをつくろう！</h3>
+
+  <div class="works">
+
+    <!-- 01 Simple Shooting Game -->
+    <article class="work-card">
+      <div class="work-video">
+        <video controls playsinline preload="metadata">
+          <source src="videos/simpleShootingGame.mp4" type="video/mp4">
+          お使いのブラウザは動画に対応していません。
+        </video>
+      </div>
+
+      <div class="work-body">
+        <p class="work-category">SCRATCH｜GAME 01</p>
+        <h3>Simple Shooting Game</h3>
+        <p>
+          敵を狙ってシューティング！
+          キャラクターを操作して、楽しいゲームをつくろう。
+        </p>
+        <a class="work-link"
+           href="https://scratch.mit.edu/projects/1399069196/fullscreen/"
+           target="_blank" rel="noopener noreferrer">
+          ゲームで遊ぶ →
+        </a>
+      </div>
+    </article>
+
+    <!-- 02 Trash Sorting Game -->
+    <article class="work-card">
+      <div class="work-video">
+        <video controls playsinline preload="metadata">
+          <source src="videos/trashSortingGame.mp4" type="video/mp4">
+          お使いのブラウザは動画に対応していません。
+        </video>
+      </div>
+
+      <div class="work-body">
+        <p class="work-category">SCRATCH｜GAME 02</p>
+        <h3>Trash Sorting Game</h3>
+        <p>
+          ごみを正しく分別できるかな？
+          遊びながらリサイクルについて学べるゲームです。
+        </p>
+        <a class="work-link"
+           href="https://scratch.mit.edu/projects/1393151287/fullscreen/"
+           target="_blank" rel="noopener noreferrer">
+          ゲームで遊ぶ →
+        </a>
+      </div>
+    </article>
+<!-- Car Race -->
+
+    <article class="work-card">
+      <div class="work-video">
+        <video controls playsinline preload="metadata">
+          <source src="videos/carRacingGame.mp4" type="video/mp4">
+          お使いのブラウザは動画に対応していません。
+        </video>
+      </div>
+
+      <div class="work-body">
+        <p class="work-category">SCRATCH｜GAME 03</p>
+        <h3>Car Race</h3>
+        <p>
+          車を操作してレースに挑戦！
+          スピードと操作を工夫してゴールを目指そう。
+        </p>
+        <a class="work-link"
+           href="https://scratch.mit.edu/projects/1123987727/fullscreen/"
+           target="_blank" rel="noopener noreferrer">
+          ゲームで遊ぶ →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+  <section class="signup-wrap" id="signup">
+    <div class="signup">
+      <div class="signup-copy">
+        <p class="eyebrow">FREE TRIAL LESSON</p>
+        <h2>さあ、Scratchで<br>はじめてみよう！</h2>
+        <p>お子さまの「やってみたい！」を応援します。<br>まずは無料体験レッスンから！</p>
+        <p class="mini-note">プログラミングが初めてでも大丈夫。日本語でサポートします。</p>
+      </div>
+      <form class="signup-form" action="#" method="post">
+        <h3>無料体験レッスンに申し込む</h3>
+        <div class="field">
+          <label for="parent-name">保護者のお名前</label>
+          <input id="parent-name" name="parent_name" type="text" placeholder="例：山田 太郎" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="child-name">お子さまのお名前</label>
+          <input id="child-name" name="child_name" type="text" placeholder="例：山田 花子" required>
+        </div>
+        <div class="field">
+          <label for="grade">学年</label>
+          <select id="grade" name="grade" required>
+            <option value="">選択してください</option>
+            <option>小学3年生</option><option>小学4年生</option>
+            <option>小学5年生</option><option>小学6年生</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="email">メールアドレス</label>
+          <input id="email" name="email" type="email" placeholder="example@email.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="message">ご質問・ご希望（任意）</label>
+          <textarea id="message" name="message" placeholder="ご希望の曜日や時間など"></textarea>
+        </div>
+        <button class="submit" type="submit">無料体験を申し込む　›</button>
+        <p class="form-note">送信フォームはサンプルです。実際に受付するには、Googleフォームやお問い合わせシステムなどへの接続が必要です。</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <a class="brand" href="#"><span class="brand-mark">A</span>Advan</a>
+  <p>Scratchを通して、考える力・創造力・問題解決力を育てます。</p>
+  <p><a href="#">プライバシーポリシー</a>　 <a href="#signup">お問い合わせ</a></p>
+</footer>
+</body>
+</html>
