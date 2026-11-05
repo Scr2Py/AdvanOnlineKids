@@ -44,6 +44,16 @@ select {
   font: inherit;
 }
 
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #ed941d;
+  outline-offset: 3px;
+}
+
 /* Header */
 .site-header {
   min-height: 64px;
@@ -301,6 +311,20 @@ select {
 }
 
 
+
+/* Keep data tables readable on narrow screens. */
+.table2Col,
+.table3Col,
+.table4Col {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table2Col table { min-width: 480px; }
+.table3Col table { min-width: 600px; }
+.table4Col table { min-width: 760px; }
+
 /* Curriculum */
 
 /* Table 4 Col */
@@ -382,16 +406,6 @@ select {
   height: 280px;
   object-fit: cover;
   border-radius: 8px;
-}
-
-/* Bild links */
-.project-band.image-left > div:first-child {
-  order: 1;
-}
-
-/* Bild rechts */
-.project-band.image-right > div:first-child {
-  order: 0;
 }
 
 /* Mobile */
@@ -748,7 +762,7 @@ select {
       <div class="info-panel">
         <h2>コース概要</h2>
         <ul class="clean-list">
-          <li>対象・英語力：小学3〜6年生程度から／PCの基本操作ができる方。英語初心者から参加可能。必要に応じて日本語で補足。/li>
+          <li>対象・英語力：小学3〜6年生程度から／PCの基本操作ができる方。英語初心者から参加可能。必要に応じて日本語で補足。</li>
           <li>授業形式・定員：外国人講師によるオンラインライブ授業／1クラス3名・固定曜日・固定メンバー</li>
           <li>開催頻度・時間：月2回／1回45分×2コマ＋途中休憩10分＝100分</li>
           <li>半年の授業数：12回・24コマ／実学習18時間</li>
