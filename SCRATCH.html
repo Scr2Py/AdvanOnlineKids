@@ -270,6 +270,37 @@ select {
   border-bottom: 2px solid #d5d5d5;
 }
 
+
+/* Table 2 Col */
+.table2Col table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table2Col th,
+.table2Col td {
+  text-align: left;
+  padding: 12px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.table2Col th:nth-child(1),
+.table2Col td:nth-child(1) {
+  width: 30%;
+}
+
+.table2Col th:nth-child(2),
+.table2Col td:nth-child(2) {
+  width: 70%;
+}
+
+.table2Col thead th {
+  border-bottom: 2px solid #d5d5d5;
+}
+
+
 /* Curriculum */
 .month-column {
   border: 1px solid var(--line);
